@@ -1,202 +1,133 @@
-# Application
+# Martian Token Crowdsale
 
-## Challenge: Martian Token Crowdsale
+KaseiCoin is fungible token that is ERC-20 compliant and that will be minted by using a Crowdsale contract from the OpenZeppelin Solidity library. Martian Aerospace Agency wants to mint KaseiCoin and put on sale for human colony on Mars. “Kasei” means “Mars” in Japanese. You will launch a crowdsale that will allow people who are moving to Mars to convert their earthling money to KaseiCoin.
+## Usage Scenario: Martian Token Crowdsale
 
-You will create a fungible token that is ERC-20 compliant and that will be minted by using a `Crowdsale` contract from the OpenZeppelin Solidity library.
+Assume you will create a fungible token that is ERC-20 compliant and that will be minted by using a `Crowdsale` contract from the OpenZeppelin Solidity library.
 
 The crowdsale contract that you create will manage the entire crowdsale process, allowing users to send ether to the contract and in return receive KAI, or KaseiCoin tokens. Your contract will mint the tokens automatically and distribute them to buyers in one transaction.
 
-### Instructions
+The following steps can guide about the process involed in this challenge:
 
-The steps for this Challenge are divided into the following sections:
+- Create the KaseiCoin Token Contract
+- Create the KaseiCoin Crowdsale Contract
+- Create the KaseiCoin Deployer Contract
+- Deploy the Crowdsale to a Local Blockchain
+- Verify the transactions in MetaMask wallet and Ganache sandox environment
 
-1. Create the KaseiCoin Token Contract
+---
 
-2. Create the KaseiCoin Crowdsale Contract
+**Required Tools:**
 
-3. Create the KaseiCoin Deployer Contract
+The Solidity program is compiled and deployed over the Ethereum blockchain based sandbox environments called 'Remix VM (London)' and 'Injected Provider - MetaMask', which was previously called as Javascript VM. It will simulate the blockchain transactions defined in the smart contract.
 
-4. Deploy the Crowdsale to a Local Blockchain
+Use the following tools to compile and deploy the program to test.
 
-5. Optional: Extend the Crowdsale Contract by Using OpenZeppelin
+* [Remix Ethereum IDE](https://remix-project.org/) - Remix IDE, is a no-setup tool with a GUI for developing smart contracts.
+* [Ethereum Unit Converter](https://eth-converter.com/) - Ether to Wei unit convertor.
+* [Ganache](https://trufflesuite.com/ganache/) - Quickly fire up a personal Ethereum blockchain which you can use to run tests, execute commands, and inspect state while controlling how the chain operates.
+* [Metamask](https://trufflesuite.com/ganache/) - A crypto wallet & gateway to blockchain apps
 
-#### Create the KaseiCoin Token Contract
+---
 
-In this section, you will create a smart contract that defines KaseiCoin as an ERC-20 token. To do so, complete the following steps:
+**References:**
 
-1. Import the provided `KaseiCoin.sol` starter file into the Remix IDE.
+* [Ethereum Smart Contract](https://ethereum.org/en/smart-contracts/) - A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain.
+* [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) - The ERC-20 introduces a standard for Fungible Tokens, in other words, they have a property that makes each Token be exactly the same (in type and value) as another Token. For example, an ERC-20 Token acts just like the ETH, meaning that 1 Token is and will always be equal to all the other Tokens.
+* [OpenZeppelin](https://docs.openzeppelin.com/contracts/2.x/api/token/erc20) - Set of interfaces, contracts, and utilities are all related to the ERC20 Token Standard.
+--
+## Usage
 
-2. Import the following contracts from the OpenZeppelin library:
+To use the smart contract, follow the key steps described as below:
 
-    * `ERC20`
+- Clone the repository and load ***KaseiCoin.sol*** and ***KaseiCoinCrowdsale.sol*** in Remix IDE. You may see the web console view as:
 
-    * `ERC20Detailed`
+![Smart Contract](Images/App_Usage.png)
 
-    * `ERC20Mintable`
+- While deploying, select Remix VM (London) as a sandbox environment.
 
-3. Define a contract for the KaseiCoin token called `KaseiCoin`, and have the contract inherit the three contracts that you just imported from OpenZeppelin.
+- You may compile and deploy the smart contract to use it further.
 
-4. Inside of your `KaseiCoin` contract, add a constructor with the following parameters: `name`, `symbol`, and `initial_supply`.
+- In order to integrate Remix IDE to Metamask and Metamask with Ganache, you may an article [here](https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/).
 
-5. Then, as part of your constructor definition, add a call to the `ERC20Detailed` contract’s constructor, passing the parameters `name`, `symbol`, and `18`. Recall that 18 is the value for the `decimal` parameter.
+- Choose Injected Provider - MetaMask as a sandbox blockchain Environment to connect Remix IDE to MetaMask. 
 
+---
+## Evaluation Evidence: KaseiCoin Minting and Deployment
 
-6. Compile the contract using compiler version 0.5.0.
+**Note:** Take note of 'At Address' field values when deploying the contract *.sol files.
 
-7. Check for any errors and debug as needed.
+|Scenario: Compile KaseiCoin Contract|
+|:-:|
+|![Step 1](Images/KaseiCoin.png)|
 
-8. Take a screenshot of the successful compilation of the contract, and add it to the Evaluation Evidence section of the `README.md` file for your Challenge repository.
+---
 
-#### Create the KaseiCoin Crowdsale Contract
+|Scenario: Compile KaseiCoinCrowdsale Contract|
+|:-:|
+|![Step 2](Images/KaseiCoinCrowdsale.png)|
 
-In this section, you will define the KaseiCoin crowdsale contract. To do so, complete the following steps:
+---
 
-1. Import the provided `KaseiCoinCrowdsale.sol` starter code into the Remix IDE.
+|Scenario: KaseiCoinCrowdsaleDeployer with MetaMask|
+|:-:|
+|![Step 3](Images/KaseiCoinCrowdsaleDeployer.png)|
 
-2. Have this contract inherit the following OpenZeppelin contracts:
+---
 
-* `Crowdsale`
+|Scenario: KaseiCoinCrowdsaleDeployer Deployed|
+|:-:|
+|![Step 4](Images/KaseiCoinCrowdsaleDeployed.png)|
 
-* `MintedCrowdsale`
+---
 
-3. Within the `KaisenCoinCrowdsale` constructor, provide parameters for all of the features of your crowdsale, such as `rate`, `wallet` (where the funds that the token raises should be deposited), and `token`. Configure these parameters as you see fit for your KaseiCoin token.
+|Scenario: KaseiCoinCrowdsale Deployed Address|
+|:-:|
+|![Step 5](Images/KaseiCoinCrowdsale_Deployed_Address.png)|
 
-4. Compile the contract using compiler version 0.5.0.
+---
 
-5. Check for any errors and debug as needed.
+|Scenario: KaseiCoin Purchased|
+|:-:|
+|![Step 6](Images/KaseiCoin_Purchased.png)|
 
-6. Take a screenshot of the successful compilation of the contract, and add it to the Evaluation Evidence section of the `README.md` file for your Challenge repository.
+---
 
-#### Create the KaseiCoin Deployer Contract
+|Scenario: KaseiCoin Contract Creation Evidence on Ganache|
+|:-:|
+|![Step 7](Images/KaseiCoin_Contract_Creation.png)|
 
+---
 
-In this section, you will create the KaseiCoin deployer contract. Start by uncommenting the `KaseiCoinCrowdsaleDeployer` contract in the provided `KaseiCoinCrowdsale.sol` starter code.
+|Scenario: KaseiCoin Contract Call Evidence on Ganache|
+|:-:|
+|![Step 8](Images/KaseiCoin_Contract_Call.png)|
 
-Next, within the `KaseiCoinCrowdsaleDeployer` contract, add variables to store the addresses of the `KaseiCoin` and `KaseiCoinCrowdsale` contracts, which this contract will deploy. To do so, complete the following steps:
+---
 
-1. Create an `address public` variable called `kasei_token_address`, which will store `KaseiCoin`’s address once that contract has been deployed.
+|Scenario: KaseiCoin Contract Call Log Evidence on Remix IDE|
+|:-:|
+|![Step 9](Images/KaseiCoin_Contract_Call_Log.png)|
 
-2. Create an `address public` variable called `kasei_crowdsale_address`, which will store `KaseiCoinCrowdsale`'s address once that contract has been deployed.
+---
 
-3. Add the following parameters to the constructor for the `KaseiCoinCrowdsaleDeployer` contract: `name`, `symbol`, and `wallet`.
+|Scenario: KaseiCoin Wallet Details Evidence on Remix IDE|
+|:-:|
+|![Step 10](Images/KaseiCoin_wallet_Details.png)|
 
-4. Inside of the constructor body (between the curly braces), complete the following steps:
+---
 
-    * Create a new instance of the `KaseiCoinToken` contract.
+|Scenario: KaseiCoin Activity Log Evidence on MetaMask|
+|:-:|
+|![Step 11](Images/KaseiCoin_Metamask.png)|
 
-    * Assign the KaseiCoin token contract’s address to the `kasei_token_address` variable. This will allow you to easily fetch the token's address later.
+---
 
-    * Create a new instance of the `KaseiCoinCrowdsale` contract using the following parameters:
+## Contributors
 
-       * `rate` (Set `rate` equal to 1 in order to maintain parity with ether.)
+FinTech Labs, Inc.
 
-       * `wallet` (Pass `wallet` in from the main constructor. This is the wallet that will get paid all of the ether raised by the crowdsale contract.)
+---
 
-       * `token` (This should be the `token` variable where `KaseiCoin` is stored.)
+## License
 
-    * Assign the KaseiCoin crowdsale contract’s address to the `kasei_crowdsale_address` variable. This will allow you to easily fetch the crowdsale’s address later.
-
-    * Set the `KaseiCoinCrowdsale` contract as a minter.
-
-    * Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
-
-5. Compile the contract using compiler version 0.5.0.
-
-6. Check for any errors and debug as needed.
-
-7. Take a screenshot of the successful compilation of the contract, and add it to the Evaluation Evidence section of the `README.md` file for your Challenge repository.
-
-#### Deploy the Crowdsale to a Local Blockchain
-
-In this section, you will deploy the crowdsale to a local blockchain using Remix, MetaMask, and Ganache. To do so, complete the following steps. Record a short video or take screenshots that illustrate the three steps outlined below as evidence of your deployed crowdsale contract.
-
-
-1. Deploy the crowdsale to a local blockchain with Remix, MetaMask, and Ganache.
-
-2. Test the functionality of the crowdsale by using test accounts to buy new tokens and then checking the balances associated with those accounts.
-
-3. After purchasing tokens with one or more test accounts, view the total supply of minted tokens and the amount of wei that has been raised in the crowdsale contract.
-
-#### Optional: Extend the Crowdsale Contract by Using OpenZeppelin
-
-In this **optional** section, you may extend the crowdsale contract to enhance its functionality. To do so, you will use the following OpenZeppelin contracts:
-
-* `CappedCrowdsale`: This contract allows you to cap the total amount of ether that may be raised during your crowdsale.
-
-* `TimedCrowdsale`: This contract allows you to set a time limit for your crowdsale by adding an opening time and a closing time.
-
-* `RefundablePostDeliveryCrowdsale`: Every time you launch a crowdsale, you set a goal amount of ether to raise. If the goal is not reached, it is common practice to refund your investors. This contract adds this capability to a crowdsale.
-
-> **Hint** We encourage you to read more about these contracts on the [Crowdsales page](https://docs.openzeppelin.com/contracts/2.x/crowdsales) of the OpenZeppelin documentation.
-
-To enhance your KaseiCoin crowdsale with this added functionality, complete the following steps:
-
-1. Import the three OpenZeppelin contracts described above into the `KaseiCoinCrowdsale.sol` contract by using the following code:
-
-    ```solidity
-    import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/validation/CappedCrowdsale.sol";
-    import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/validation/TimedCrowdsale.sol";
-    import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/distribution/RefundablePostDeliveryCrowdsale.sol";
-    ```
-
-2. In addition to the `Crowdsale` and `MintedCrowdsale` contracts, which your contract previously inherited from OpenZeppelin, have your `KaseiCoinCrowdsale` contract inherit the three contracts that you imported in the previous step:
-
-* `CappedCrowdsale`
-
-* `TimedCrowdsale`
-
-* `RefundablePostDeliveryCrowdsale`
-
-3. In the `KaseiCoinCrowdsale` constructor, add the following new parameters:
-
-    * `uint goal`: This variable will represent the amount of ether which you hope to raise during the crowdsale&mdash;the crowdsale’s goal.
-
-    * `uint open`: This variable will represent the opening time for the crowdsale.
-
-    * `uint close`: This variable will represent the closing time for the crowdsale.
-
-4. Complete the `KaseiCoinCrowdsale` constructor code by adding calls to the new contracts, as the following code shows:
-
-    ```solidity
-    constructor(
-            uint256 rate, // rate in TKNbits
-            address payable wallet, // sale beneficiary
-            KaseiCoin token, // the KaseiCoin itself that the KaseiCoinCrowdsale will work with
-            uint goal, // the crowdsale goal
-            uint open, // the crowdsale opening time
-            uint close // the crowdsale closing time
-        ) public
-            Crowdsale(rate, wallet, token)
-            CappedCrowdsale(goal)
-            TimedCrowdsale(open, close)
-            RefundableCrowdsale(goal)
-        {
-            // constructor can stay empty
-        }
-    ```
-
-    > **Important** `RefundablePostDeliveryCrowdsale` itself inherits the `RefundableCrowdsale` contract, which requires a `goal` parameter. So, in addition to the others, you must call the `RefundableCrowdsale` constructor from your `KaseiCoinCrowdsale` constructor. `RefundablePostDeliveryCrowdsale` does not have its own constructor, which is why we use the `RefundableCrowdsale` constructor that it inherits.
-    >
-    > If you forget to call the `RefundableCrowdsale` constructor, the `RefundablePostDeliveryCrowdsale` will fail. This is because it does not have its own constructor, and so it relies on the `RefundableCrowdsale` constructor.
-
-5. Next, update the `KaseiCoinCrowdsaleDeployer` contract to allow the deployment of the updated crowdsale contract. In the constructor of the deployer contract, add a new `uint` parameter called `goal` that will allow you to set the crowdsale goal.
-
-6. In the core assignment, you added an instance of the `KaseiCoinCrowdsale` contract to the KaseiCoin deployer contract. Since we have modified the `KaseiCoinCrowdsale` contract to support new functionality, you must now update your previous code with the following code:
-
-    ```solidity
-    KaseiCoinCrowdsale kasei_crowdsale = new KaseiCoinCrowdsale (1, wallet, token, goal, now, now + 24 weeks);
-    ```
-
-   Note that in the preceding code, you added values for the three new parameters. The `goal` parameter represents the amount of ether to raise during the crowdsale, `now` represents the crowdsale opening time, and `now + 24 weeks` represents the closing time.
-
-    The `now` function returns the current Ethereum block timestamp in the form of seconds since the Unix epoch. The **Unix epoch** (also known as **Unix time**, **POSIX time**, or **Unix timestamp**) is an integer that represents the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds.
-
-7. Compile and test the updated contract by completing following steps:
-
-    * Send ether to the crowdsale from a different account (**not** the same account that is raising funds). Then, once you confirm that the crowdsale works as expected, try to add the token to your wallet and test a transaction.
-
-    * You can set the `close` time to be `now + 5 minutes`, or any timeline that you'd like to test, for a shorter crowdsale.
-
-    * When sending ether to the contract, make sure that you meet the contract’s `goal`. Then, finalize the sale using the `Crowdsale` contract's `finalize` function. To finalize the sale, `isOpen` must return false (`isOpen` comes from `TimedCrowdsale` and checks to see whether the `close` time has passed yet). If you set the `goal` to 300 ether, for example, you may need to purchase tokens from multiple accounts in order to meet the goal. If you run out of pre-funded accounts in Ganache, you can create a new workspace.
-
-    * View your tokens in MetaMask. In MetaMask, click Add Token, then click Custom Token,  and enter the token contract’s address. Make sure to purchase higher amounts of tokens in order to see the denomination appear in your wallet as more than a few wei worth.
