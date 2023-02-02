@@ -50,7 +50,7 @@ To use the smart contract, follow the key steps described as below:
 
 - In order to integrate Remix IDE with MetaMask and MetaMask with Ganache, you may an article [here](https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/).
 
-- Choose Injected Provider - MetaMask as a sandbox blockchain Environment to connect Remix IDE to MetaMask. 
+- Choose 'Injected Provider - MetaMask' as a sandbox blockchain Environment to connect Remix IDE with MetaMask. 
 
 ---
 ## Evaluation Evidence: KaseiCoin Minting and Deployment
