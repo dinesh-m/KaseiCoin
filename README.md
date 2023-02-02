@@ -26,7 +26,7 @@ Use the following tools to compile and deploy the program to test.
 * [Remix Ethereum IDE](https://remix-project.org/) - Remix IDE, is a no-setup tool with a GUI for developing smart contracts.
 * [Ethereum Unit Converter](https://eth-converter.com/) - Ether to Wei unit convertor.
 * [Ganache](https://trufflesuite.com/ganache/) - Quickly fire up a personal Ethereum blockchain which you can use to run tests, execute commands, and inspect state while controlling how the chain operates.
-* [Metamask](https://trufflesuite.com/ganache/) - A crypto wallet & gateway to blockchain apps
+* [MetaMask](https://metamask.io/) - A crypto wallet & gateway to blockchain apps
 
 ---
 
@@ -48,7 +48,7 @@ To use the smart contract, follow the key steps described as below:
 
 - You may compile and deploy the smart contract to use it further.
 
-- In order to integrate Remix IDE to Metamask and Metamask with Ganache, you may an article [here](https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/).
+- In order to integrate Remix IDE to MetaMask and MetaMask with Ganache, you may an article [here](https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/).
 
 - Choose Injected Provider - MetaMask as a sandbox blockchain Environment to connect Remix IDE to MetaMask. 
 
