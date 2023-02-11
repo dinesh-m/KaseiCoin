@@ -35,7 +35,8 @@ Use the following tools to compile and deploy the program to test.
 * [Ethereum Smart Contract](https://ethereum.org/en/smart-contracts/) - A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain.
 * [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) - The ERC-20 introduces a standard for Fungible Tokens, in other words, they have a property that makes each Token be exactly the same (in type and value) as another Token. For example, an ERC-20 Token acts just like the ETH, meaning that 1 Token is and will always be equal to all the other Tokens.
 * [OpenZeppelin](https://docs.openzeppelin.com/contracts/2.x/api/token/erc20) - Set of interfaces, contracts, and utilities are all related to the ERC20 Token Standard.
---
+
+---
 ## Usage
 
 To use the smart contract, follow the key steps described as below:
